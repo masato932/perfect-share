@@ -3,7 +3,42 @@
 {% block content %}
 
 <div class="my-5">
-    <h1>Hello World!!</h1>
+    <h1>天気</h1>
 </div>
+<div>
+    <div id='calendar'>
 
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js'></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            editable: true,
+            dateClick: function (info) {
+                console.log('Clicked on: ' + info.dateStr);
+                console.log('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                console.log('Current view: ' + info.view.type);
+                // change the day's background color just for fun
+                info.dayEl.style.backgroundColor = 'green';
+                const dateStr = info.dateStr.split('-')
+                console.log(dateStr)
+                const year = Number(dateStr[0])
+                const month = Number(dateStr[1])
+                const date = Number(dateStr[2])
+                console.log(year)
+                console.log(month)
+                console.log(date)
+                window.location.href = "{% url 'add' 2000 13 32 %}".replace(/2000/, year).replace(/13/, month).replace(/32/, date)
+            }
+        });
+        calendar.render();
+    });
+
+</script>
 {% endblock %}

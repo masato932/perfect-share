@@ -1,7 +1,13 @@
-from django.views.generic import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import View
+from django.shortcuts import render
 
 
-class IndexView(LoginRequiredMixin, TemplateView):
-    template_name = "app/index.html"
-    login_url = '/accounts/login/'
+class IndexView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'app/index.html', {
+        })
+
+class AddView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'app/add.html', {
+        })
