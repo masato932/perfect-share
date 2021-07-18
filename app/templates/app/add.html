@@ -5,4 +5,16 @@
 <div class="my-5">
     <h1>今日のやること</h1>
 </div>
+{% for task in task_data %}
+<a href="{% url 'task_edit' task.id year month day %}">
+    <div>
+        {{task.name}}
+    </div>
+</a>
+
+
+{% endfor %}
+
+
+
 {% endblock %}
