@@ -13,21 +13,17 @@
         {% render_field form.name class="form-control" placeholder="タスク名を入力" %}
     </div>
     <div class="formpost">
-        {% render_field form.duration class="form-control" %}
+        {% render_field form.duration class="form-control" placeholder="所要時間を入力" %}
     </div>
     <div class="formpost">
-        {% render_field form.sharing_rate class="form-control" %}
+        {% render_field form.sharing_rate class="form-control" placeholder="分担率を入力" %}
     </div>
     <div class="formpost">
-        {% render_field form.wage class="form-control" %}
+        {% render_field form.wage class="form-control" placeholder="賃金換算を入力" %}
     </div>
-    <p>
-      {{year}}
-    </p>
-    <!-- <input type="number" name="wage" value="300" required id="id_wage"> -->
-    <input type="number" name='year' value={{year}} required id='id_year'>
-    <input type="number" name='month' value={{month}} required id='id_month'>
-    <input type="number" name='day' value={{day}} required id='id_day'>
+    <input type="hidden" name='year' value={{year}} required id='id_year'>
+    <input type="hidden" name='month' value={{month}} required id='id_month'>
+    <input type="hidden" name='day' value={{day}} required id='id_day'>
     <button class="btn btn-warning" type="submit">送信する</button>
 </form>
 

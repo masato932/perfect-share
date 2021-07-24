@@ -9,6 +9,7 @@ class Task(models.Model):
   duration = models.IntegerField("所要時間")
   sharing_rate = models.IntegerField("分担率")
   wage = models.IntegerField("賃金換算")
+  created = models.DateField("作成日", default = timezone.now )
 
   def __str__(self):
     return self.name
